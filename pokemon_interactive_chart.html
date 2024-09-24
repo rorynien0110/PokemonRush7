@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寶可夢卡序互動圖表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        td:hover {
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: gray;
+            color: white;
+        }
+        .special {
+            background-color: purple;
+            color: white;
+            font-weight: bold;
+        }
+        .special.highlight {
+            background-color: darkred;
+            color: white;
+            font-weight: bold;
+        }
+        .rare {
+            background-color: gold;
+            color: black;
+            font-weight: bold;
+        }
+        .rare.highlight {
+            background-color: darkblue;
+            color: white;
+            font-weight: bold;
+        }
+        .probability {
+            font-weight: bold;
+            color: blue;
+        }
+        .top1 {
+            border: 3px solid red;
+        }
+        .top2 {
+            border: 3px solid blue;
+        }
+        .top3 {
+            border: 3px solid yellow;
+        }
+        #resetBtn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            padding: 10px 20px;
+            background-color: lightgray;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #resetBtn:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <button id="resetBtn">一鍵重製</button>
+    <h2>寶可夢Rush7卡序互動圖表</h2>
+    <table id="pokemonTable">
+        <thead>
+            <tr>
+                <th>SN</th>
+                <th id="headerA">A</th>
+                <th id="headerB">B</th>
+                <th id="headerC">C</th>
+                <th id="headerD">D</th>
+                <th id="headerE">E</th>
+                <th id="headerF">F</th>
+                <th id="headerG">G</th>
+                <th id="headerH">H</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>50</td><td class='pokemon'>s4大力鱷</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s3皮卡丘</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1火球鼠</td></tr>
+<tr><td>49</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>cp伊布</td><td class='pokemon'>s4布里卡隆</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s4妖火紅狐</td><td class='pokemon'>s4大竺葵</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s2摩魯蛾</td></tr>
+<tr><td>48</td><td class='pokemon'>s4亞克諾姆</td><td class='pokemon rare'>焰白裘雷姆</td><td class='pokemon'>s3袋獸</td><td class='pokemon rare'>瑪夏多</td><td class='pokemon rare'>原始蓋歐卡</td><td class='pokemon'>s4暴飛龍</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s1寶貝龍</td></tr>
+<tr><td>47</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s3袋獸</td><td class='pokemon'>s4暴飛龍</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s4艾姆利多</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s3青銅鐘</td></tr>
+<tr><td>46</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon special'>卡噗鳴鳴</td><td class='pokemon'>s4基拉祈</td><td class='pokemon'>s1火狐狸</td><td class='pokemon special'>惡食大王</td><td class='pokemon'>s4勾帕路翁</td><td class='pokemon'>s2燈火幽靈</td></tr>
+<tr><td>45</td><td class='pokemon'>s4尼多后</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s2摩魯蛾</td></tr>
+<tr><td>44</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s3大竺葵</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s3火爆獸</td><td class='pokemon'>s4甲賀忍蛙</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s1哈力栗</td></tr>
+<tr><td>43</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>s4蓋諾賽克特</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s4由克希</td><td class='pokemon'>s4甲賀忍蛙</td><td class='pokemon'>s4尼多王</td></tr>
+<tr><td>42</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s4火爆獸</td><td class='pokemon'>s4大竺葵</td><td class='pokemon'>s4艾姆利多</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s3甲賀忍蛙</td></tr>
+<tr><td>41</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s3火爆獸</td><td class='pokemon'>s3摩魯蛾</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2藍鱷</td></tr>
+<tr><td>40</td><td class='pokemon'>s4勾帕路翁</td><td class='pokemon'>s4暴飛龍</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s3大竺葵</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s1小鋸鱷</td></tr>
+<tr><td>39</td><td class='pokemon special'>四顎針龍</td><td class='pokemon rare'>闇黑裘雷姆</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s3路卡利歐</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s3路卡利歐</td></tr>
+<tr><td>38</td><td class='pokemon'>s4皮卡丘</td><td class='pokemon'>s3大力鱷</td><td class='pokemon'>s3火爆獸</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s3水晶燈火靈</td><td class='pokemon'>s3摩魯蛾</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s1呱呱泡蛙</td></tr>
+<tr><td>37</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s1哈力栗</td><td class='pokemon special'>卡蹼鰭鰭</td></tr>
+<tr><td>36</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s4路卡利歐</td><td class='pokemon'>s2胖胖哈力</td></tr>
+<tr><td>35</td><td class='pokemon'>s3青銅鐘</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s3烈箭鷹</td><td class='pokemon'>cp伊布</td><td class='pokemon'>s4布里卡隆</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s2呱頭蛙</td></tr>
+<tr><td>34</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s4基拉祈</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s4時拉比</td><td class='pokemon'>s4甲賀忍蛙</td></tr>
+<tr><td>33</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon rare'>原始固拉多</td><td class='pokemon'>s4皮卡丘</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s4尼多后</td><td class='pokemon'>s4袋獸</td></tr>
+<tr><td>32</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon special'>超夢Y</td><td class='pokemon special'>阿爾宙斯</td><td class='pokemon'>s3甲賀忍蛙</td><td class='pokemon'>s3大力鱷</td><td class='pokemon'>s2青銅鐘</td></tr>
+<tr><td>31</td><td class='pokemon'>s3大竺葵</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s4亞克諾姆</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s4大力鱷</td><td class='pokemon'>s1小箭雀</td></tr>
+<tr><td>30</td><td class='pokemon'>s3烈箭鷹</td><td class='pokemon'>s3青銅鐘</td><td class='pokemon'>s3青銅鐘</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>s4皮卡丘</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s2甲殼龍</td></tr>
+<tr><td>29</td><td class='pokemon'>s3水晶燈火靈</td><td class='pokemon'>s4亞克諾姆</td><td class='pokemon'>s3妖火紅狐</td><td class='pokemon'>s4畢力吉翁</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon rare'>烈空坐</td><td class='pokemon rare'>瑪夏多</td></tr>
+<tr><td>28</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s3甲賀忍蛙</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon rare'>烈空坐</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>cp伊布</td></tr>
+<tr><td>27</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s4代拉基翁</td><td class='pokemon'>s4由克希</td><td class='pokemon'>s4時拉比</td><td class='pokemon'>s4烈箭鷹</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s4布里卡隆</td><td class='pokemon'>s2火箭雀</td></tr>
+<tr><td>26</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s3大力鱷</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s4艾姆利多</td></tr>
+<tr><td>25</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s4由克希</td><td class='pokemon'>s3水晶燈火靈</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s2長尾火狐</td></tr>
+<tr><td>24</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s4基拉祈</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s3妖火紅狐</td><td class='pokemon'>s4皮卡丘</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s4蓋諾賽克特</td></tr>
+<tr><td>23</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s3袋獸</td></tr>
+<tr><td>22</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s4時拉比</td><td class='pokemon'>s1哈力栗</td><td class='pokemon rare'>原始固拉多</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s3水晶燈火靈</td></tr>
+<tr><td>21</td><td class='pokemon rare'>焰白裘雷姆</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s1火球鼠</td><td class='pokemon special'>卡噗哞哞</td><td class='pokemon'>s4代拉基翁</td></tr>
+<tr><td>20</td><td class='pokemon'>s3摩魯蛾</td><td class='pokemon'>s4勾帕路翁</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s3烈箭鷹</td><td class='pokemon'>s4大竺葵</td><td class='pokemon'>s3妖火紅狐</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s3皮卡丘</td></tr>
+<tr><td>19</td><td class='pokemon'>s4畢力吉翁</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s1燭光靈</td></tr>
+<tr><td>18</td><td class='pokemon'>s4火爆獸</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s4蓋諾賽克特</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s2皮卡丘</td></tr>
+<tr><td>17</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s4亞克諾姆</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s3摩魯蛾</td><td class='pokemon'>s1火狐狸</td></tr>
+<tr><td>16</td><td class='pokemon'>s3袋獸</td><td class='pokemon'>s4烈箭鷹</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s3暴飛龍</td><td class='pokemon'>s3烈箭鷹</td><td class='pokemon'>cp伊布</td><td class='pokemon'>s4火爆獸</td><td class='pokemon'>s1菊草葉</td></tr>
+<tr><td>15</td><td class='pokemon'>s4妖火紅狐</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s3大力鱷</td></tr>
+<tr><td>14</td><td class='pokemon'>s3暴飛龍</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1哈力栗</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s1銅鏡怪</td></tr>
+<tr><td>13</td><td class='pokemon'>s4尼多王</td><td class='pokemon'>s1菊草葉</td><td class='pokemon'>s4袋獸</td><td class='pokemon'>s2月桂葉</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s4袋獸</td><td class='pokemon'>s3大竺葵</td><td class='pokemon'>s2月桂葉</td></tr>
+<tr><td>12</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s2火箭雀</td><td class='pokemon rare'>捷拉奧拉</td><td class='pokemon'>s4代拉基翁</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s2青銅鐘</td><td class='pokemon'>s3路卡利歐</td><td class='pokemon'>s4基拉祈</td></tr>
+<tr><td>11</td><td class='pokemon'>s1燭光靈</td><td class='pokemon'>s3火爆獸</td><td class='pokemon'>s4蓋諾賽克特</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>cp伊布</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s4艾姆利多</td><td class='pokemon'>s2長尾火狐</td></tr>
+<tr><td>10</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>cp伊布</td><td class='pokemon'>s4尼多王</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s1呱呱泡蛙</td><td class='pokemon'>s1菊草葉</td></tr>
+<tr><td>9</td><td class='pokemon special'>夢幻</td><td class='pokemon'>s3皮卡丘</td><td class='pokemon'>s2皮卡丘</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s1利歐路</td><td class='pokemon'>s4時拉比</td><td class='pokemon'>s3甲賀忍蛙</td><td class='pokemon'>s4妖火紅狐</td></tr>
+<tr><td>8</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s3妖火紅狐</td><td class='pokemon'>s3布里卡隆</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s2長尾火狐</td><td class='pokemon'>s2火岩鼠</td><td class='pokemon rare'>捷拉奧拉</td></tr>
+<tr><td>7</td><td class='pokemon'>s4路卡利歐</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s4代拉基翁</td><td class='pokemon'>s3路卡利歐</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s1利歐路</td></tr>
+<tr><td>6</td><td class='pokemon'>s1火球鼠</td><td class='pokemon'>s4大力鱷</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s1銅鏡怪</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon'>s3布里卡隆</td><td class='pokemon'>s3皮卡丘</td><td class='pokemon'>s2火岩鼠</td></tr>
+<tr><td>5</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s4畢力吉翁</td><td class='pokemon'>s2呱頭蛙</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s3布里卡隆</td><td class='pokemon'>s4烈箭鷹</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s2路卡利歐</td></tr>
+<tr><td>4</td><td class='pokemon'>s2胖胖哈力</td><td class='pokemon'>s2路卡利歐</td><td class='pokemon'>s2燈火幽靈</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s2火箭雀</td><td class='pokemon'>s4路卡利歐</td><td class='pokemon special'>超夢X</td><td class='pokemon'>s2甲殼龍</td></tr>
+<tr><td>3</td><td class='pokemon'>s1小鋸鱷</td><td class='pokemon'>s4尼多王</td><td class='pokemon'>s4尼多后</td><td class='pokemon'>s4勾帕路翁</td><td class='pokemon'>s4尼多后</td><td class='pokemon rare'>闇黑裘雷姆</td><td class='pokemon'>s3暴飛龍</td><td class='pokemon'>s1毛球</td></tr>
+<tr><td>2</td><td class='pokemon'>s1利歐路</td><td class='pokemon special'>卡蹼蝶蝶</td><td class='pokemon'>s1寶貝龍</td><td class='pokemon rare'>原始蓋歐卡</td><td class='pokemon'>s2甲殼龍</td><td class='pokemon'>s1火狐狸</td><td class='pokemon'>s2藍鱷</td><td class='pokemon'>s4畢力吉翁</td></tr>
+<tr><td>1</td><td class='pokemon'>s2摩魯蛾</td><td class='pokemon'>s1小箭雀</td><td class='pokemon'>s3暴飛龍</td><td class='pokemon'>s3布里卡隆</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s1毛球</td><td class='pokemon'>s4由克希</td><td class='pokemon'>s1利歐路</td></tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>目標機率</td>
+                <td class="probability" id="probA">0%</td>
+                <td class="probability" id="probB">0%</td>
+                <td class="probability" id="probC">0%</td>
+                <td class="probability" id="probD">0%</td>
+                <td class="probability" id="probE">0%</td>
+                <td class="probability" id="probF">0%</td>
+                <td class="probability" id="probG">0%</td>
+                <td class="probability" id="probH">0%</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        let highlightedCells = [];
+
+        // 點擊事件邏輯，管理高亮和取消高亮
+        document.querySelectorAll('.pokemon').forEach(cell => {
+            cell.addEventListener('click', function() {
+                const pokemonName = this.textContent;
+
+                // 查找所有相同名稱的單元格
+                let allSameNameCells = document.querySelectorAll('.pokemon');
+                let sameNameCells = [];
+                allSameNameCells.forEach(item => {
+                    if (item.textContent === pokemonName) {
+                        sameNameCells.push(item);
+                    }
+                });
+
+                // 檢查這些單元格是否已經高亮，如果已高亮則全部取消
+                if (sameNameCells.some(cell => cell.classList.contains('highlight'))) {
+                    sameNameCells.forEach(cell => {
+                        cell.classList.remove('highlight');
+                        highlightedCells = highlightedCells.filter(c => c !== cell); // 移除已取消的高亮單元格
+                    });
+                } else {
+                    // 否則，新增高亮
+                    sameNameCells.forEach(cell => {
+                        cell.classList.add('highlight');
+                        highlightedCells.push(cell); // 添加新的高亮單元格
+                    });
+                }
+
+                // 更新每一欄的機率
+                updateProbabilities();
+            });
+        });
+
+        function updateProbabilities() {
+            let totalRows = document.querySelectorAll('tbody tr').length;
+            let columnHighlights = [0, 0, 0, 0, 0, 0, 0, 0];  // A 到 H 欄的高亮計數
+
+            // 遍歷高亮單元格並計算每一欄高亮次數
+            highlightedCells.forEach(cell => {
+                let cellIndex = cell.cellIndex;  // 獲取該單元格所在的列索引
+                if (cellIndex > 0) {
+                    columnHighlights[cellIndex - 1]++;  // 忽略 SN 列
+                }
+            });
+
+            // 計算並顯示每一欄的目標機率
+            let probabilities = [];
+            for (let i = 0; i < columnHighlights.length; i++) {
+                let probElement = document.getElementById('prob' + String.fromCharCode(65 + i)); // A=65
+                let probability = (columnHighlights[i] / totalRows) * 100;
+                probElement.textContent = probability.toFixed(2) + '%';
+                probabilities.push({prob: probability, index: i});
+            }
+
+            // 移除所有的 top1, top2, top3 樣式
+            document.querySelectorAll('th').forEach(el => {
+                el.classList.remove('top1', 'top2', 'top3');
+            });
+
+            // 排序概率，找到前3名，並框選對應的英文字母標題
+            probabilities.sort((a, b) => b.prob - a.prob);
+            if (probabilities[0].prob > 0) document.getElementById('header' + String.fromCharCode(65 + probabilities[0].index)).classList.add('top1');
+            if (probabilities[1].prob > 0) document.getElementById('header' + String.fromCharCode(65 + probabilities[1].index)).classList.add('top2');
+            if (probabilities[2].prob > 0) document.getElementById('header' + String.fromCharCode(65 + probabilities[2].index)).classList.add('top3');
+        }
+
+        // 重製按鈕邏輯，取消所有高亮
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.querySelectorAll('.highlight').forEach(cell => {
+                cell.classList.remove('highlight');
+            });
+            highlightedCells = [];
+            updateProbabilities();  // 重置機率顯示
+        });
+    </script>
+</body>
+</html>
